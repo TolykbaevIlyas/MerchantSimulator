@@ -4,13 +4,15 @@ let infoTable = document.getElementById("infoTable");
 
 // Классы
 
-class city{
+class Rand{
     _getRandomInt(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min)) + min;
       }
-      
+}
+
+class city extends Rand{
     _RandomCity(number){
         let city = ["Алматы","Астана","Караганда","Ташкент","Шымкент"];
         return city[number];
@@ -29,7 +31,7 @@ class city{
 
 }
 
-class cart extends city{
+class cart extends Rand{
     _LoadCapacity(){
         return this._getRandomInt(20,200);
     }
@@ -39,7 +41,7 @@ class cart extends city{
     }
 }
 
-class dealer extends city{
+class dealer extends Rand{
     _DealerMoney(){
         return this._getRandomInt(20000,100000);
     }
@@ -49,7 +51,7 @@ class dealer extends city{
     }
 }
 
-class product extends city{
+class product extends Rand{
     _getRandomArbitrary(min, max) {
         return Math.random() * (max - min) + min;
       }
@@ -128,7 +130,7 @@ class product extends city{
 
 }
 
-class gameevent extends city{
+class gameevent extends Rand{
     _AllOfEvent(){
         return{
             1: "Обычный день - ничего не произошло. Проехали сколько-то лиг.",
